@@ -1,0 +1,124 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+
+body {
+  background: #0a0e14;
+  color: #e6f1ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.scanner-card {
+  background: #10151f;
+  border: 1px solid #1e2733;
+  border-radius: 16px;
+  padding: 24px;
+  width: 420px;
+  box-shadow: 0 0 40px rgba(0, 200, 255, 0.08);
+}
+
+h1 {
+  text-align: center;
+  letter-spacing: 4px;
+  font-size: 20px;
+  color: #4fd1ff;
+  margin-bottom: 16px;
+}
+
+.video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  border: 2px solid #223;
+}
+
+video, canvas#overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+canvas#overlay {
+  pointer-events: none;
+}
+
+.status-text {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  background: rgba(0,0,0,0.55);
+  border-radius: 6px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.status-text.idle   { color: #cfd8e3; }
+.status-text.scanning { color: #ffa940; }
+.status-text.success  { color: #52ffa0; }
+.status-text.denied   { color: #ff5c5c; }
+.status-text.spoof    { color: #ff5c5c; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+#username {
+  flex: 1 1 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #26313f;
+  background: #0d1219;
+  color: #e6f1ff;
+}
+
+button {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #17324a;
+  color: #4fd1ff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+button:hover { background: #1d4266; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.progress {
+  margin-top: 14px;
+  height: 6px;
+  border-radius: 3px;
+  background: #1a222d;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4fd1ff, #52ffa0);
+  transition: width 0.15s ease;
+}
+
+.hidden { display: none !important; }
+
+.log {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #7d8aa0;
+  min-height: 18px;
+  text-align: center;
+}
